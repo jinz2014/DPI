@@ -1,0 +1,9 @@
+*.o
+*.wlf
+*.exe
+*.so
+*.tar
+*.zip
+*.log
+work
+transcript

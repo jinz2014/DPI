@@ -1,0 +1,17 @@
+# vsim -l log -c -sv_lib foreign opt_test 
+# //  ModelSim SE 6.6b May 21 2010 Linux 2.6.18-238.19.1.el5
+# //
+# //  Copyright 1991-2010 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.test(fast)
+# Loading /share/jinz/SystemVerilog/systemverilog/dpi/dpi_basic/work/_dpi/linux_gcc-4.3.3/exportwrapper.so
+# Loading ./foreign.so
+# There's a car waiting on the other side. 
+# Initiate change sequence ...

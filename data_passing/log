@@ -1,0 +1,25 @@
+# vsim -l log -c -sv_lib foreign opt_test 
+# //  ModelSim SE-64 10.1 Dec  5 2011 Linux 2.6.18-308.4.1.el5.cny5.6509
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.test(fast)
+# Loading ./foreign.so
+#  
+# Just received a value of 0.
+# Just received a value of 1.
+# Just received a value of -12.
+# Just received a value of 0.
+# Just received a value of 1.
+# Just received a value of 0.
+# Just received a value of 1.
+# Just received a value of 0.
+# Just received a value of logic X.
+# Just received a value of logic Z.
+# Just received a value of logic 0.

@@ -1,0 +1,9 @@
+Note
+
+Using SV DPI to compare the hw pipeline outputs with those of the sw model
+
+Both the hw and sw models are driven by the input data from the test data file. 
+
+The number of queues is equal to the number of output ports. All the queues have the 
+same input data pushed when pipeline enable(en) is high. Data from a queue is popped out
+when the corresponding output result is valid in the hw model.

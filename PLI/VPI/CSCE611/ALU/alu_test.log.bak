@@ -1,0 +1,21 @@
+ncverilog: v3.20.(p1): (c) Copyright 1995 - 2000 Cadence Design Systems, Inc.
+
+At    0 ns: result=256.00 	 excep=0  err=0  a=16.0  b=2.0  opcode=0
+At    1 ns: result=4.00 	 excep=0  err=0  a=16.0  b=2.0  opcode=1
+At    2 ns: result=8886110.52 	 excep=0  err=0  a=16.0  b=2.0  opcode=2
+At    3 ns: result=64.00 	 excep=0  err=0  a=16.0  b=2.0  opcode=3
+At    4 ns: result=16.00 	 excep=0  err=0  a=16.0  b=2.0  opcode=4
+At    5 ns: result=0.00 	 excep=0  err=0  a=16.0  b=2.0  opcode=5
+At    6 ns: result=16.00 	 excep=0  err=0  a=16.0  b=2.0  opcode=6
+At    7 ns: result=16.00 	 excep=0  err=0  a=16.0  b=2.0  opcode=7
+At    8 ns: result=2.77 	 excep=0  err=0  a=16.0  b=2.0  opcode=8
+At    9 ns: result=1.20 	 excep=0  err=0  a=16.0  b=2.0  opcode=9
+At   10 ns: result=-0.29 	 excep=0  err=0  a=16.0  b=2.0  opcode=a
+At   11 ns: result=-0.96 	 excep=0  err=0  a=16.0  b=2.0  opcode=b
+At   12 ns: result=0.30 	 excep=0  err=0  a=16.0  b=2.0  opcode=c
+At   13 ns: result=0.00 	 excep=0  err=1  a=16.0  b=2.0  opcode=d
+At   14 ns: result=0.00 	 excep=0  err=1  a=16.0  b=2.0  opcode=e
+At   15 ns: result=1.51 	 excep=0  err=0  a=16.0  b=2.0  opcode=f
+At   16 ns: result=256.00 	 excep=0  err=0  a=16.0  b=2.0  opcode=0
+
+Simulation complete via $finish(1) at time 26 NS + 0

@@ -1,0 +1,87 @@
+#############################################################################
+# Makefile to run a SysteVerilog simulation
+# (c) by Chris Spear, Greg Tumbush, and Tim Pylant
+# This file is included from Makefile
+# Feel free to copy and share; just report problems back to us
+
+help:
+	@echo "Make targets:"
+	@echo "> make vcs          # Compile and run with VCS"
+	@echo "> make vcsgui       # Compile and run with VCS GUI"
+	@echo "> make questa_gui   # Compile and run with Questa"
+	@echo "> make questa_batch # Compile and run with Questa"
+	@echo "> make ius      	   # Compile and run with IUS"
+	@echo "> make iusgui   	   # Compile and run with IUS GUI"
+	@echo "> make clean    	   # Clean up all intermediate files"
+	@echo "> make tar      	   # Create a tar file for the current directory"
+	@echo "> make help     	   # This message"
+
+
+#############################################################################
+# VCS section
+VCS_FLAGS = -sverilog -debug_all -l comp.log -CFLAGS "-g -DVCS"
+
+vcs:	simv
+	./simv -l simv.log ${PLUSARG}
+
+vcsgui:	simv
+	./simv -l simv.log -gui ${PLUSARG}
+
+simv:   ${FILES}
+	vcs ${VCS_FLAGS} ${FILES} ${CFILES}
+
+vcsi:	simvi
+	./simvi -l simvi.log ${PLUSARG}
+
+vcsigui:	simvi
+	./simvi -l simvi.log -gui ${PLUSARG}
+
+simvi:   ${FILES}
+	vcs -o simvi ${VCS_FLAGS} ${FILES} ${CFILES}
+
+
+#############################################################################
+# Questa section
+questa_gui: ${FILES} clean
+	vlib work
+	vmap -c work work
+	vlog ${QCOMP}  +define+QUESTA-dpiheader incl.h ${FILES}
+	g++ -m64 -fPIC -DQUESTA -g -W -shared -I$(QUESTASIM)/include -I. ${CFILES} -o questa.so
+	vsim -novopt ${PLUSARG} -do "view wave;add wave -radix hex -r *;run -all" ${TOPLEVEL} -sv_lib questa
+
+questa_batch: ${FILES} clean
+	vlib work
+	vmap -c work work
+	vlog ${QCOMP} +define+QUESTA -dpiheader incl.h ${FILES}
+	#g++ -m32 -fPIC -DQUESTA -g -W -shared -I$(QUESTASIM)/include -I. ${CFILES} -o questa.so
+	g++ -m64 -fPIC -DQUESTA -g -W -shared -I$(MTI_HOME)/include -I. ${CFILES} -o questa.so
+	vsim -c -novopt ${PLUSARG} -do "run -all; quit" ${TOPLEVEL} -sv_lib questa
+
+#############################################################################
+# Cadence IUS section
+IUS_FLAGS = -debug -gui
+ius: ${FILES}
+	irun ${FILES} ${CFILES} ${PLUSARG}
+
+iusgui: ${FILES}
+	irun ${IUS_FLAGS} ${FILES} ${CFILES} ${PLUSARG}
+
+
+#############################################################################
+# Housekeeping
+
+DIR = $(shell basename `pwd`)
+
+tar:	clean
+	cd ..; \
+	tar cvf ${DIR}.tar ${DIR}
+
+clean:
+	@# VCS Stuff
+	@rm -rf simv* csrc* *.log *.vpd .vcsmx_rebuild vc_hdrs.h DVEfiles .restart*
+	@# Questa stuff
+	@rm -rf work *.so transcript vsim.wlf incl.h
+	@# IUS Stuff
+	@rm -rf INCA_libs *shm .simvision *.log *.key
+	@# Unix stuff
+	@rm -rf  *~ core.*

@@ -1,0 +1,8 @@
+This example shows the following SystemVerilog features:
+
+    * Direct Programming interface (DPI)
+
+The example has a simple C 7-bit counter based on Chapter 12 of the book "SV for 
+Verification".  The C function is called directly by
+the verilog code using a SystemVerilog mechanism called the Direct Programming
+Interface (DPI).  This mechanism is explained in detail in the User's manual.
